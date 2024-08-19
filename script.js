@@ -7,7 +7,7 @@ window.addEventListener('scroll', function() {
         
         // Adjust the scale for each image based on the scroll position
         images.forEach(image => {
-            const scaleValue = Math.max(1 - scrollY / 10000, 0.5); // Slower scaling
+            const scaleValue = Math.max(1 - scrollY / 8000, 0.1); // Slower scaling
             image.style.transform = `scale(${scaleValue})`;
         });
     });
