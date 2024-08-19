@@ -1,27 +1,19 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
     
-    document.getElementById('fileInput').addEventListener('change', function(event) {
-        const file = event.target.files[0];
-        
-        if (file) {
-            const reader = new FileReader();
-            
-            reader.onload = function(e) {
-                const content = e.target.result;
-                parseAndDisplayContent(content);
-            };
-            
-            reader.onerror = function(e) {
-                console.error("Error reading file", e);
-                alert("Error reading file");
-            };
-            
-            reader.readAsText(file);
-        } else {
-            alert('No file selected');
-        }
-    });
+    // Specify the path to your fixed file
+    const filePath = './dispo.txt';
+
+    // Fetch and parse the fixed file
+    fetch(filePath)
+        .then(response => response.text())
+        .then(content => {
+            parseAndDisplayContent(content);
+        })
+        .catch(error => {
+            console.error('Error fetching file', error);
+            alert('Error fetching file');
+        });
 });
 
 function parseAndDisplayContent(content) {
