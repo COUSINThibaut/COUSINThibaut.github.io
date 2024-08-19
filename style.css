@@ -351,6 +351,12 @@ header {
   }
 }
 
+@media screen and (max-width: 700px) {
+  .img1, .img2, .img3 {
+    height: 200px !important;
+  } 
+}
+
 
 /*  old hover effect on triple box
 .img-boxe1, .img-boxe2, .img-boxe3 {
@@ -482,7 +488,7 @@ footer .icon a img{
 .carousel {
   width: 50%;
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
 
 @media screen and (max-width: 1100px) {
@@ -513,6 +519,12 @@ footer .icon a img{
     width: 40%;
     margin-bottom: 20px;
     background-image: url(img/plantes/plante6.png) !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  ul.slides {
+    height: 400px !important;
   }
 }
 
