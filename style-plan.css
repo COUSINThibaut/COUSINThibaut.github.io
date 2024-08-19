@@ -111,7 +111,6 @@ header {
   }
 
   header {
-    position: fixed;
     height: 75px;
     width: 100vw;
     background-color: #faf3ed;
@@ -128,12 +127,6 @@ header {
 }
 /*********************      header      ********************/
 /**********************************************************/
-
-@media screen and (max-width: 900px) {
-  .img-header {
-    margin-top: 80px;
-  }
-}
 
 .img-header {
   display: flex;
