@@ -199,6 +199,12 @@ header {
     }
 }
 
+@media screen and (max-width: 600px) {
+  .plan {
+    margin-top: 50px !important;
+  }
+}
+
 /*responsive footer*/
 @media screen and (max-width: 900px) {
     footer .map-container {
