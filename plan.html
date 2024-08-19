@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <title>Gite Alibert</title>
+  <link rel="stylesheet" href="style-plan.css">
+</head>
+<div class="top-banner"></div>
+<header>
+    <nav class="navbar">
+        <a href="#" class="logo">Gite ALIBERT</a>
+        <div class="nav-links">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="calendar.html">Disponibilités</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <img src="img/menu.png" alt="menu" class="menu">
+    </nav> 
+</header>
+
+<section class="img-header">
+    <div class="img-container">
+        <div class="boxe">
+            <div class="container">
+                <p>PERDU ?</p>
+            </div> 
+        </div>
+    </div>
+</section>
+
+<section class="plan">
+    <div class="tree">
+        <p>
+            <a href="index.html">|---Accueil</a><br>
+            <a href="https://lequeyras.com/selon-ma-nature/ete-dans-le-queyras/">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---L'été dans le Queyras <span>(site du Queyras)</span></a><br>
+            <a href="https://lequeyras.com/selon-ma-nature/hiver-blanc-comme-neige/">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---L'hiver dans le Queyras <span>(site du Queyras)</span></a><br>
+            <a href="alentours.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---Les alentours</a><br>
+            <a href="https://reservation.lequeyras.com/nuit-a-l-observatoire-de-saint-veran.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---L'observatoire <span>(site du Queyras)</span></a><br>
+            <a href="https://lequeyras.com/a-voir-a-faire/nos-pepites/le-col-agnel/">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---Le col agnel <span>(site du Queyras)</span></a><br>
+            <a href="https://lequeyras.com/un-bout-du-monde/chateau-ville-vieille/">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|---Le fort Queyras <span>(site du Queyras)</span></a><br><br>
+            <a href="calendar.html">|---Disponibilités</a><br><br>
+            <a href="contact.html">|---Contact</a><br><br>
+            <a href="plan.html">|---Plan du site</a>
+        </p>
+    </div>
+</section>
+
+
+<footer>
+    <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d45365.73315471135!2d6.856279492393976!3d44.712298090560076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12cccc0e156c5911%3A0x669c975df89168ff!2s05350%20Molines-en-Queyras!5e0!3m2!1sfr!2sfr!4v1721125289239!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <!--&copy; 2024 Google Maps on WebSite. All rights reserved.-->
+    </div>
+    <div class="container">
+        <a href="#" class="logo">Gite ALIBERT</a>
+        <div class="icon">
+            <a target=”_blank” href="https://www.google.fr/maps/place/05350+Molines-en-Queyras/">
+                <img src="img/maps.png" alt="">
+            </a>
+            <a target=”_blank” href="https://www.airbnb.fr/">
+                <img src="img/airbnb.png" alt="">
+            </a>
+            <a target=”_blank” href="https://www.leboncoin.fr/">
+              <img src="img/lbc.png" alt="">
+          </a>
+        </div>
+        <div class="lien-utile">
+          <a href="index.html">Accueil - </a>
+          <a href="https://lequeyras.com/selon-ma-nature/ete-dans-le-queyras/">l'été dans le Queyras - </a>
+          <a href="https://lequeyras.com/selon-ma-nature/hiver-blanc-comme-neige/">l'hiver dans le Queyras - </a>
+          <a href="alentours.html">les alentours - </a>
+          <a href="contact.html">Contact - </a>
+          <a href="calendar.html">Disponibilités - </a>
+          <a href="plan.html">plan du site</a>
+          
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+    const menuHamburger = document.querySelector(".menu")
+    const navLinks = document.querySelector(".nav-links")
+
+    menuHamburger.addEventListener('click',()=>{
+    navLinks.classList.toggle('mobile-menu')
+    })
+</script>
+</html>
