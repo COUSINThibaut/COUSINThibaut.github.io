@@ -130,6 +130,7 @@ header {
 /**********************************************************/
 
 .img-header {
+  display: none !important;
   display: flex;
 
   width: 100%;
