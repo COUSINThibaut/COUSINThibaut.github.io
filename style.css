@@ -139,7 +139,7 @@ header {
 
 
 .img-container {
-  height: 600px;
+  height: 100%;
   display: flex;
   background-image: url(img/header-pc.jpg);
   opacity: 0.85;
@@ -237,7 +237,9 @@ header {
   .text-queyras-pc {
     display: none;
   }
-
+  .img-header {
+    height: 500px;
+  }
 }
 
 
