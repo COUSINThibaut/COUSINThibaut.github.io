@@ -130,6 +130,13 @@ header {
 /*********************      header      ********************/
 /**********************************************************/
 
+
+@media screen and (max-width: 900px) {
+  .img-header {
+    margin-top: 80px;
+  }
+}
+
 .img-header {
   display: flex;
   width: 100%;
