@@ -285,7 +285,7 @@ footer .icon a img{
 }
 
 .calendar {
-  height: max-content;
+  height: auto;
   margin-top: 50px;
   min-height: 200px;
     margin-left: 18%;
