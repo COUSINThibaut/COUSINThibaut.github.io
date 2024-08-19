@@ -117,11 +117,12 @@ header {
   }
 
   header {
+    position: fixed;
     height: 75px;
     width: 100vw;
     background-color: #faf3ed;
     opacity: 1;
-    z-index: 4;
+    z-index: 90;
   }
 
   .navbar .logo{
