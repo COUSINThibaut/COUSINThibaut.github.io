@@ -23,7 +23,8 @@ body {
 header {
   height: 100px;
   width: 100vw;
-  background-color: rgba(250, 243, 237, 1);
+  background-color:  #faf3ed;
+  opacity: 1;
   z-index: 4;
 }
 
@@ -39,14 +40,14 @@ header {
 }
 
 .navbar a{
-  color: #161829;
+  color: rgb(0, 0, 0);
 }
 
 .navbar .logo{
   font-size: 2em;
   font-weight: bold;
   z-index: 5;
-  color: #161829;
+  color: rgb(0, 0, 0);
 }
 
 .navbar .nav-links ul {
@@ -111,9 +112,10 @@ header {
   }
 
   header {
-    position: fixed;
     height: 75px;
     width: 100vw;
+    background-color: #faf3ed;
+    opacity: 1;
     z-index: 4;
   }
 
@@ -123,9 +125,6 @@ header {
     z-index: 5;
     color: rgb(0, 0, 0);
   }
-  .img-header {
-    margin-top: 75px;
-}
 }
 /*********************      header      ********************/
 /**********************************************************/
