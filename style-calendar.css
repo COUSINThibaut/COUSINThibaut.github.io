@@ -283,11 +283,21 @@ footer .icon a img{
 }
 
 .calendar {
+  margin-top: 50px;
+  min-height: 200px;
     margin-left: 18%;
     margin-right: 18%;
     background-color: #faf3ed;
     text-align: center;
     justify-content: center;
+}
+
+
+@media screen and (max-width: 600px) {
+  .calendar {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 }
 
 .year {
