@@ -285,6 +285,7 @@ footer .icon a img{
 }
 
 .calendar {
+  height: max-content;
   margin-top: 50px;
   min-height: 200px;
     margin-left: 18%;
@@ -339,7 +340,6 @@ footer .icon a img{
 }
 
 .bouton-contact {
-  margin-bottom: 50px;
   border-radius: 10px;
   padding: 10px;
   background-color: #ed9a3c;
