@@ -83,7 +83,7 @@ header {
     top: 0;
     left: 0;
     position: fixed;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(250, 243, 237, 0.8);
     backdrop-filter: blur(10px);
     width: 100%;
     height: 100vh;
@@ -682,7 +682,7 @@ input:checked + .slide-container .nav label { display: block; }
 /********************************************/
 
 #gradient-div {
-  margin-top: 50px;
+  margin-top: 25px;
     position: static;
     background-color: rgb(250, 243, 237); /* Couleur initiale */
     transition: background-color 0.1s ease; /* Réduit la durée pour une réactivité accrue */

@@ -88,7 +88,7 @@ header {
     top: 0;
     left: 0;
     position: fixed;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(250, 243, 237, 0.8);
     backdrop-filter: blur(10px);
     width: 100%;
     height: 100vh;
@@ -141,6 +141,7 @@ header {
   height: 400px;
   text-align: center;
   justify-content: center;
+  margin-bottom: 50px;
 }
 
 .img-container {
@@ -208,6 +209,7 @@ header {
 
 .article .case-text h1{
   color: white;
+  max-width: 80%;
 }
 
 .article .case-text p{
@@ -250,6 +252,27 @@ header {
   width: 100%;
   object-fit: cover;
   border-radius: 0 50px 50px 0;
+}
+
+@media screen and (max-width: 600px) {
+  .article {
+    width: 85% !important;
+    margin-left: 7.5% !important;
+    margin-top: 7.5% !important;
+    border-radius: 25px !important;
+  }
+  .article .case-img {
+    max-height: 200px;
+  }
+  .article .case-text {
+    max-height: 300px;
+  }
+  .article .case-text p{
+    max-width: 85%;
+  }
+  .article .case-img img{
+    border-radius: 0 25px 25px 0 !important;
+  }
 }
 
 @media screen and (max-width: 900px) {
@@ -296,6 +319,7 @@ header {
 
 .article-left .case-text-left h1{
   color: white;
+  max-width: 80%;
 }
 
 .article-left .case-text-left p{
@@ -323,6 +347,28 @@ header {
   border-radius: 50px 0 0 50px;
 }
 
+
+@media screen and (max-width: 600px) {
+  .article-left {
+    width: 85% !important;
+    margin-left: 7.5% !important;
+    margin-top: 7.5% !important;
+    border-radius: 25px !important;
+  }
+
+  .article-left .case-img-left {
+    max-height: 200px;
+  }
+  .article-left .case-text-left {
+    max-height: 300px;
+  }
+  .article-left .case-text-left p{
+    max-width: 85%;
+  }
+  .article-left .case-img-left img{
+    border-radius: 25px 0 0 25px !important;
+  }
+}
 
 @media screen and (max-width: 900px) {
   .article-left {
