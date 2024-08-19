@@ -111,6 +111,7 @@ header {
   }
 
   header {
+    position: fixed;
     height: 75px;
     width: 100vw;
     background-color: #faf3ed;
