@@ -118,7 +118,7 @@
               } else if (/^\d+ [\*\-]$/.test(line)) {
                   const [day, status] = line.split(' ');
                   const date = `${currentYear}-${currentMonth}-${day.padStart(2, '0')}`;
-                  disponibilites[date] = status === "*";
+                  disponibilites[date] = status === "-";
               }
           });
   
