@@ -813,6 +813,7 @@ input:checked + .slide-container .nav label { display: block; }
   .form-resa div {
     width: 80%;
   }
+  .form-resa input[type="date"],
   .bouton-resa input[type="submit"] {
     width: 100%;
   }
