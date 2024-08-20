@@ -821,6 +821,7 @@ input:checked + .slide-container .nav label { display: block; }
 .form-resa select,
 .form-resa input[type="email"],
 .form-resa input[type="date"] {
+  height: 35px;
   color: #000000; /* Couleur du texte à l'intérieur des champs */
   background-color: #ffffff; /* Couleur de fond des champs */
 }
@@ -830,11 +831,8 @@ input:checked + .slide-container .nav label { display: block; }
   opacity: 1; /* Assure que l'opacité est complète (1 = 100%) */
 }
 
-input[type="date"] {
-  -webkit-appearance: none; /* Désactive l'apparence native sur WebKit */
-  appearance: none;
-}
 .form-resa input[type="date"] {
-  height: 36px;
+  -webkit-appearance: none;
+  appearance: none;
   width: 100%;
 }
