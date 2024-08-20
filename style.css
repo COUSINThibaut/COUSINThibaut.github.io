@@ -777,7 +777,7 @@ input:checked + .slide-container .nav label { display: block; }
   color: #ffffff;
 }
 
-.form-resa select, 
+.form-resa select,
 .form-resa input[type="email"],
 .form-resa input[type="date"] {
   width: 100%;

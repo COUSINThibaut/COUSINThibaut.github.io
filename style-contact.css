@@ -400,6 +400,11 @@ textarea {
     width: 100%;
   }
 }
+@media screen and (max-width: 700px) {
+  .bouton-contact {
+    width: 80% !important;
+  }
+}
 
 .form-contact select,
 .form-contact input[type="email"],
