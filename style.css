@@ -813,7 +813,6 @@ input:checked + .slide-container .nav label { display: block; }
   .form-resa div {
     width: 80%;
   }
-  .form-resa input[type="date"],
   .bouton-resa input[type="submit"] {
     width: 100%;
   }
@@ -835,12 +834,6 @@ input[type="date"] {
   -webkit-appearance: none; /* Désactive l'apparence native sur WebKit */
   appearance: none;
 }
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  /* Styles spécifiques à Safari */
-  .form-resa input[type="date"] {
-    padding: 8px;
-    width: 50%;
-    box-sizing: border-box;
-    color: #000; /* Assure que le texte est visible */
-  }
+.form-resa input[type="date"] {
+  width: 100%;
 }
