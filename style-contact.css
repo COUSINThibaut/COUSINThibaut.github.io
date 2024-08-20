@@ -187,17 +187,6 @@ header {
       }
 }
 
-.form {
-  padding: 100px;
-    background-color: #faf3ed;
-}
-
-@media screen and (max-width: 600px) {
-  .form {
-    padding: 50px !important;
-  }
-}
-
 /*responsive footer*/
 @media screen and (max-width: 900px) {
   footer .map-container {
@@ -282,4 +271,128 @@ footer .icon a img{
   a:hover {
     color:#ed3c57;
   }
+}
+
+/***********     form     **************/
+
+.titre-contact {
+  color: #b8b8b8;
+  margin-left: 5%;
+  margin-right: 5%;
+  max-width: 90%;
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+
+  margin-top: 50px;
+  padding-bottom: 10px;
+  font-size: 1.5em;
+  text-align: center;
+  justify-content: center;
+}
+
+.form-container {
+  margin-bottom: 50px;
+}
+
+.form-contact {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 80%;
+  padding: 20px;
+  background-color: #e4d9cf;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 25px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.form-row > div {
+  width: 48%; /* Ajuster selon la taille souhaitée */
+}
+
+.form-contact div {
+  margin: 5px 0;
+  text-align: left;
+}
+
+.form-contact label {
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.form-contact input[type="email"],
+.form-contact input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  border-radius: 3px;
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+}
+
+.bouton-contact {
+  width: 30%;
+  text-align: center;
+}
+
+.bouton-contact input[type="submit"] {
+  margin-top: 20px;
+  width: 100%;
+  padding: 15px;
+  background-color: #112e3f;
+  color: #ffffff;
+  font-size: 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: ease 0.2s;
+}
+
+.bouton-contact input[type="submit"]:hover {
+  background-color: #275068;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+  .form-row {
+    flex-direction: column;
+  }
+  .form-row > div {
+    width: 100%;
+  }
+  .bouton-contact input[type="submit"] {
+    width: 100%;
+  }
+}
+
+.form-contact select,
+.form-contact input[type="email"],
+.form-contact input[type="text"] {
+  height: 35px;
+  color: #000000;
+  background-color: #ffffff;
+}
+
+.form-contact input::placeholder {
+  color: #888888;
+  opacity: 1;
+}
+
+.form-contact input[type="date"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
 }
