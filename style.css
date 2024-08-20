@@ -830,6 +830,11 @@ input:checked + .slide-container .nav label { display: block; }
   opacity: 1; /* Assure que l'opacité est complète (1 = 100%) */
 }
 
+input[type="date"] {
+  -webkit-appearance: none; /* Désactive l'apparence native sur WebKit */
+  appearance: none;
+}
 .form-resa input[type="date"] {
+  height: 36px;
   width: 100%;
 }
