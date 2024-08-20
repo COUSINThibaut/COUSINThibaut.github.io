@@ -830,3 +830,8 @@ input:checked + .slide-container .nav label { display: block; }
   color: #888888; /* Couleur du texte des placeholders */
   opacity: 1; /* Assure que l'opacité est complète (1 = 100%) */
 }
+
+input[type="date"] {
+  -webkit-appearance: none; /* Désactive l'apparence native sur WebKit */
+  appearance: none;
+}
