@@ -294,6 +294,9 @@ footer .icon a img{
 
 .form-container {
   margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .form-contact {
@@ -310,6 +313,14 @@ footer .icon a img{
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   margin-bottom: 25px;
+}
+
+@media screen and (min-width: 1500px) {
+  .form-contact {
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%;
+  }
 }
 
 .form-row {
@@ -331,6 +342,18 @@ footer .icon a img{
 .form-contact label {
   font-weight: 500;
   color: #ffffff;
+}
+
+.container-textarea {
+  width: 100%;
+}
+
+textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 3px;
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
 }
 
 .form-contact input[type="email"],
