@@ -135,24 +135,30 @@ async function loadDisponibilites() {
 }
 
 document.addEventListener("DOMContentLoaded", async function() {
-    const disponibilites = await loadDisponibilites();
-    const dateInput = document.getElementById("date-arrivee");
+        const disponibilites = await loadDisponibilites();
+        const dateInput = document.getElementById("date-arrivee");
 
-    flatpickr(dateInput, {
-        dateFormat: "Y-m-d",
-        disable: Object.keys(disponibilites).filter(date => !disponibilites[date]),
-        onDayCreate: function(dObj, dStr, fp, dayElem) {
-            const date = dayElem.dateObj.toISOString().split('T')[0];
-            if (disponibilites[date] === false) {
-                dayElem.style.backgroundColor = "red"; // Date occupée
-                dayElem.style.color = "white";
-            } else if (disponibilites[date] === true) {
-                dayElem.style.backgroundColor = "green"; // Date libre
-                dayElem.style.color = "white";
+        flatpickr(dateInput, {
+            dateFormat: "Y-m-d",
+            disable: Object.keys(disponibilites).filter(date => !disponibilites[date]),
+            onDayCreate: function(dObj, dStr, fp, dayElem) {
+                const date = dayElem.dateObj.toISOString().split('T')[0];
+                console.log(`Date calculée: ${date}`);  // Debugging: Verify the date
+                console.log(`Disponibilité: ${disponibilites[date]}`);  // Debugging: Verify availability
+                
+                // Ensure availability is set correctly
+                if (disponibilites[date] === false) {
+                    dayElem.style.backgroundColor = "red"; // Date occupée
+                    dayElem.style.color = "white";
+                } else if (disponibilites[date] === true) {
+                    dayElem.style.backgroundColor = "green"; // Date libre
+                    dayElem.style.color = "white";
+                } else {
+                    dayElem.style.backgroundColor = "";  // Default color if not specified
+                }
             }
-        }
+        });
     });
-});
 
 
   </script>
