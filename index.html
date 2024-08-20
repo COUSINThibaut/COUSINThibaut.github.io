@@ -99,7 +99,7 @@
 
     <!-- Script pour charger et traiter les disponibilités -->
     <script>
-      function parseDisponibilites(data) {
+function parseDisponibilites(data) {
     const lines = data.split('\n');
     const disponibilites = {};
     let currentYear = '';
@@ -118,10 +118,9 @@
         } else if (/^\d+ [\*\-]$/.test(line)) {
             const [day, status] = line.split(' ');
             const date = `${currentYear}-${currentMonth}-${day.padStart(2, '0')}`;
-            // Correction du décalage des dates
-            const dateObj = new Date(date);
-            const correctedDate = new Date(dateObj.getTime() - (dateObj.getTimezoneOffset() * 60000));
-            const correctedDateStr = correctedDate.toISOString().split('T')[0];
+            // On crée un objet Date avec la date et on la convertit en format ISO pour normaliser
+            const dateObj = new Date(date + "T00:00:00Z");
+            const correctedDateStr = dateObj.toISOString().split('T')[0];
             disponibilites[correctedDateStr] = status === "-";
         }
     });
@@ -154,6 +153,7 @@ document.addEventListener("DOMContentLoaded", async function() {
         }
     });
 });
+
 
   </script>
   
