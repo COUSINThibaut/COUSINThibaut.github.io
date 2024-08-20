@@ -838,8 +838,8 @@ input[type="date"] {
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   /* Styles spécifiques à Safari */
   .form-resa input[type="date"] {
-    float: left;
-    width: 100%;
+    padding: 8px;
+    width: 50%;
     box-sizing: border-box;
     color: #000; /* Assure que le texte est visible */
   }
