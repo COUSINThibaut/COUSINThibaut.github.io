@@ -119,8 +119,13 @@
         const [day, status] = line.split(' ');
         const date = `${currentYear}-${currentMonth}-${day.padStart(2, '0')}`;
         
-        // On crée un objet Date avec la date sans fuseau horaire
+        // Créer un objet Date
         const dateObj = new Date(`${date}T12:00:00Z`);
+        
+        // Soustraire un jour
+        dateObj.setDate(dateObj.getDate() - 1);
+        
+        // Convertir en chaîne de caractères ISO et utiliser la date seulement
         const correctedDateStr = dateObj.toISOString().split('T')[0];
         disponibilites[correctedDateStr] = status === "-";
     }
