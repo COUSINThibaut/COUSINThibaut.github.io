@@ -835,3 +835,12 @@ input:checked + .slide-container .nav label { display: block; }
   appearance: none;
   width: 100%;
 }
+
+.dispo-indisponible {
+    background-color: red !important;
+    color: white !important;
+}
+.dispo-passee {
+    background-color: gray !important;
+    color: white !important;
+}
