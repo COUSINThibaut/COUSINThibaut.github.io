@@ -55,7 +55,6 @@
         <div>
             <label for="date-arrivee">Date d'arrivée :</label><br>
             <input type="date" id="date-arrivee" name="date-arrivee" required>
-
         </div>
         
         <!-- Durée -->
@@ -89,7 +88,6 @@
           <input type="email" id="email" name="email" placeholder="votre.adresse@email.com" required>
         </div>
       
-        
         <!-- Bouton de soumission -->
         <div class="bouton-resa">
             <input type="submit" value="Réserver">
@@ -97,70 +95,65 @@
     </form>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
-   function parseDisponibilites(data) {
-    const lines = data.split('\n');
-    const disponibilites = {};
-    let currentYear = '';
-    let currentMonth = '';
-    const months = {
-        "jan": "01", "fev": "02", "mar": "03", "avr": "04", "mai": "05", "jui": "06",
-        "jul": "07", "aou": "08", "sep": "09", "oct": "10", "nov": "11", "dec": "12"
-    };
+    function parseDisponibilites(data) {
+        const lines = data.split('\n');
+        const disponibilites = {};
+        let currentYear = '';
+        let currentMonth = '';
+        const months = {
+            "jan": "01", "fev": "02", "mar": "03", "avr": "04", "mai": "05", "jui": "06",
+            "jul": "07", "aou": "08", "sep": "09", "oct": "10", "nov": "11", "dec": "12"
+        };
 
-    lines.forEach(line => {
-    line = line.trim();
-    if (/^\d{4}$/.test(line)) {
-        currentYear = line;
-    } else if (months.hasOwnProperty(line)) {
-        currentMonth = months[line];
-    } else if (/^\d+ [\*\-]$/.test(line)) {
-        const [day, status] = line.split(' ');
-        const date = `${currentYear}-${currentMonth}-${day.padStart(2, '0')}`;
-        
-        // On crée un objet Date avec la date sans fuseau horaire
-        const dateObj = new Date(`${date}T12:00:00Z`);
-        const correctedDateStr = dateObj.toISOString().split('T')[0];
-        disponibilites[correctedDateStr] = status === "-";
-    }
-});
-
-    return disponibilites;
-}
-
-async function loadDisponibilites() {
-    const response = await fetch('dispo.txt');
-    const data = await response.text();
-    return parseDisponibilites(data);
-}
-
-document.addEventListener("DOMContentLoaded", async function() {
-    const disponibilites = await loadDisponibilites();
-    const dateInput = document.getElementById("date-arrivee");
-
-    flatpickr(dateInput, {
-        dateFormat: "Y-m-d",
-        disable: Object.keys(disponibilites).filter(date => !disponibilites[date]),
-        onDayCreate: function(dObj, dStr, fp, dayElem) {
-            let date = dayElem.dateObj.toISOString().split('T')[0];
-            
-            // Décaler la couleur d'un jour en arrière
-            let dateObj = new Date(date);
-            dateObj.setDate(dateObj.getDate() + 1);
-            date = dateObj.toISOString().split('T')[0];
-            
-            if (disponibilites[date] === false) {
-                dayElem.style.backgroundColor = "red"; // Date occupée
-                dayElem.style.color = "white";
-            } else if (disponibilites[date] === true) {
-                dayElem.style.backgroundColor = "green"; // Date libre
-                dayElem.style.color = "white";
+        lines.forEach(line => {
+            line = line.trim();
+            if (/^\d{4}$/.test(line)) {
+                currentYear = line;
+            } else if (months.hasOwnProperty(line)) {
+                currentMonth = months[line];
+            } else if (/^\d+ [\*\-]$/.test(line)) {
+                const [day, status] = line.split(' ');
+                const date = `${currentYear}-${currentMonth}-${day.padStart(2, '0')}`;
+                
+                disponibilites[date] = status === "-";
             }
-        }
+        });
+
+        return disponibilites;
+    }
+
+    async function loadDisponibilites() {
+        const response = await fetch('dispo.txt');
+        const data = await response.text();
+        return parseDisponibilites(data);
+    }
+
+    document.addEventListener("DOMContentLoaded", async function() {
+        const disponibilites = await loadDisponibilites();
+        const dateInput = document.getElementById("date-arrivee");
+
+        flatpickr(dateInput, {
+            dateFormat: "Y-m-d",
+            disable: Object.keys(disponibilites).filter(date => !disponibilites[date]),
+            onDayCreate: function(dObj, dStr, fp, dayElem) {
+                let date = dayElem.dateObj.toISOString().split('T')[0];
+                
+                let dateObj = new Date(date);
+                dateObj.setDate(dateObj.getDate() + 1);
+                date = dateObj.toISOString().split('T')[0];
+                
+                if (disponibilites[date] === false) {
+                    dayElem.style.backgroundColor = "red";
+                    dayElem.style.color = "white";
+                } else if (disponibilites[date] === true) {
+                    dayElem.style.backgroundColor = "green";
+                    dayElem.style.color = "white";
+                }
+            }
+        });
     });
-});
-
-
 </script>
 
 
