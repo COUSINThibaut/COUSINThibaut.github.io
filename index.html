@@ -110,20 +110,21 @@
     };
 
     lines.forEach(line => {
-        line = line.trim();
-        if (/^\d{4}$/.test(line)) {
-            currentYear = line;
-        } else if (months.hasOwnProperty(line)) {
-            currentMonth = months[line];
-        } else if (/^\d+ [\*\-]$/.test(line)) {
-            const [day, status] = line.split(' ');
-            const date = `${currentYear}-${currentMonth}-${day.padStart(2, '0')}`;
-            // On crée un objet Date avec la date et on la convertit en format ISO pour normaliser
-            const dateObj = new Date(date + "T00:00:00Z");
-            const correctedDateStr = dateObj.toISOString().split('T')[0];
-            disponibilites[correctedDateStr] = status === "-";
-        }
-    });
+    line = line.trim();
+    if (/^\d{4}$/.test(line)) {
+        currentYear = line;
+    } else if (months.hasOwnProperty(line)) {
+        currentMonth = months[line];
+    } else if (/^\d+ [\*\-]$/.test(line)) {
+        const [day, status] = line.split(' ');
+        const date = `${currentYear}-${currentMonth}-${day.padStart(2, '0')}`;
+        
+        // On crée un objet Date avec la date sans fuseau horaire
+        const dateObj = new Date(`${date}T12:00:00Z`);
+        const correctedDateStr = dateObj.toISOString().split('T')[0];
+        disponibilites[correctedDateStr] = status === "-";
+    }
+});
 
     return disponibilites;
 }
