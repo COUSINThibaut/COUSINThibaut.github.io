@@ -837,10 +837,14 @@ input:checked + .slide-container .nav label { display: block; }
 }
 
 .dispo-indisponible {
-    background-color: red !important;
-    color: white !important;
+  background-color: red !important;
+  color: white !important;
 }
 .dispo-passee {
-    background-color: gray !important;
-    color: white !important;
+  background-color: gray !important;
+  color: white !important;
+}
+.dispo-disponible {
+  background-color: green !important;
+  color: white !important;
 }
