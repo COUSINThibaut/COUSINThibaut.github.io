@@ -138,7 +138,10 @@
             disable: Object.keys(disponibilites).filter(date => !disponibilites[date]),
             onDayCreate: function(dObj, dStr, fp, dayElem) {
                 let date = dayElem.dateObj.toISOString().split('T')[0];
-                const today = new Date().toISOString().split('T')[0];
+
+                let dateObj = new Date(date);
+                dateObj.setDate(dateObj.getDate() + 1); // Décalage d'un jour en arrière
+                date = dateObj.toISOString().split('T')[0];
                 
                 // Jours passés
                 if (date < today) {
