@@ -836,15 +836,15 @@ input:checked + .slide-container .nav label { display: block; }
   width: 100%;
 }
 
-.dispo-indisponible {
-  background-color: red !important;
-  color: white !important;
-}
-.dispo-passee {
+.disabled {
   background-color: gray !important;
   color: white !important;
 }
-.dispo-disponible {
+.unavailable {
+  background-color: red !important;
+  color: white !important;
+}
+.available {
   background-color: green !important;
   color: white !important;
 }

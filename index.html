@@ -53,7 +53,7 @@
         <!-- Date d'arrivée -->
         <div>
             <label for="date-arrivee">Date d'arrivée :</label><br>
-            <input type="date" id="date-arrivee" name="date-arrivee" required>
+            <input type="text" id="date-arrivee" name="date-arrivee" required>
         </div>
         
         <!-- Durée -->
@@ -135,35 +135,37 @@
 
         flatpickr(dateInput, {
             dateFormat: "Y-m-d",
-            disable: Object.keys(disponibilites).filter(date => !disponibilites[date]),
+            disable: [
+                function(date) {
+                    const dateStr = date.toISOString().split('T')[0];
+                    if (disponibilites.hasOwnProperty(dateStr)) {
+                        return !disponibilites[dateStr];
+                    }
+                    return true; // Dates non renseignées sont considérées comme non disponibles
+                },
+                function(date) {
+                    const today = new Date();
+                    return date < today; // Jours passés
+                }
+            ],
             onDayCreate: function(dObj, dStr, fp, dayElem) {
                 let date = dayElem.dateObj.toISOString().split('T')[0];
-                const today = new Date().toISOString().split('T')[0];
-
-                // Calculer la date du jour précédent
-                let previousDate = new Date(date);
-                previousDate.setDate(previousDate.getDate() + 1);
-                previousDate = previousDate.toISOString().split('T')[0];
-
-                // Jours passés
-                if (date < today) {
-                    dayElem.classList.add('dispo-passee');
-                }
                 
-                // Jours non renseignés
-                else if (!disponibilites[date] && !disponibilites[previousDate]) {
-                    dayElem.classList.add('dispo-indisponible');
-                }
-                
-                // Jours disponibles
-                else if (disponibilites[date]) {
-                    dayElem.classList.add('dispo-disponible');
+                if (date in disponibilites) {
+                    if (disponibilites[date] === false) {
+                        dayElem.classList.add('unavailable'); // Date non disponible (rouge)
+                    } else {
+                        dayElem.classList.add('available'); // Date disponible (vert)
+                    }
+                } else if (dObj < new Date()) {
+                    dayElem.classList.add('disabled'); // Date passée (gris)
+                } else {
+                    dayElem.classList.add('unavailable'); // Date non renseignée (rouge)
                 }
             }
         });
     });
 </script>
-
 <div id="scroll-container">
   <div id="gradient-div">
     <div class="titre">
