@@ -141,31 +141,29 @@
                     if (disponibilites.hasOwnProperty(dateStr)) {
                         return !disponibilites[dateStr];
                     }
-                    return true; // Dates non renseignées sont considérées comme non disponibles
+                    return false; // Non désactivé ici, traitement dans onDayCreate
                 },
                 function(date) {
-                    const today = new Date();
-                    return date < today; // Jours passés
+                    return date < new Date(); // Jours passés
                 }
             ],
             onDayCreate: function(dObj, dStr, fp, dayElem) {
-                let date = dayElem.dateObj.toISOString().split('T')[0];
+                const date = dayElem.dateObj.toISOString().split('T')[0];
                 
-                if (date in disponibilites) {
-                    if (disponibilites[date] === false) {
-                        dayElem.classList.add('unavailable'); // Date non disponible (rouge)
-                    } else {
-                        dayElem.classList.add('available'); // Date disponible (vert)
-                    }
-                } else if (dObj < new Date()) {
+                if (date < new Date().toISOString().split('T')[0]) {
                     dayElem.classList.add('disabled'); // Date passée (gris)
-                } else {
+                } else if (disponibilites[date] === false) {
+                    dayElem.classList.add('unavailable'); // Date non disponible (rouge)
+                } else if (!(date in disponibilites)) {
                     dayElem.classList.add('unavailable'); // Date non renseignée (rouge)
+                } else {
+                    dayElem.classList.add('available'); // Date disponible (vert)
                 }
             }
         });
     });
 </script>
+
 <div id="scroll-container">
   <div id="gradient-div">
     <div class="titre">
