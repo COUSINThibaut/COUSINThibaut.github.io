@@ -779,11 +779,14 @@ input:checked + .slide-container .nav label { display: block; }
 
 .form-resa select,
 .form-resa input[type="email"],
+.form-resa input[type="text"],
 .form-resa input[type="date"] {
   width: 100%;
   padding: 8px;
   border-radius: 3px;
   border: 1px solid #ffffff;
+  height: 35px;
+  color: #000000;
   box-sizing: border-box;
 }
 
@@ -820,14 +823,6 @@ input:checked + .slide-container .nav label { display: block; }
   .bouton-resa input[type="submit"] {
     width: 100%;
   }
-}
-
-.form-resa select,
-.form-resa input[type="email"],
-.form-resa input[type="date"] {
-  height: 35px;
-  color: #000000; /* Couleur du texte à l'intérieur des champs */
-  background-color: #ffffff; /* Couleur de fond des champs */
 }
 
 .form-resa input::placeholder {
