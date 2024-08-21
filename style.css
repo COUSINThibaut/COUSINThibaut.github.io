@@ -841,10 +841,10 @@ input:checked + .slide-container .nav label { display: block; }
   color: white !important;
 }
 .unavailable {
-  background-color: rgb(240, 73, 73) !important;
+  color: rgb(240, 73, 73) !important;
   color: white !important;
 }
 .available {
-  background-color: rgb(61, 160, 61) !important;
+  color: rgb(61, 160, 61) !important;
   color: white !important;
 }
