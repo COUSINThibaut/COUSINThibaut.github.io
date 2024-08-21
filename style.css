@@ -837,14 +837,14 @@ input:checked + .slide-container .nav label { display: block; }
 }
 
 .disabled {
-  background-color: gray !important;
+  background-color: rgb(153, 153, 153) !important;
   color: white !important;
 }
 .unavailable {
-  background-color: red !important;
+  background-color: rgb(240, 73, 73) !important;
   color: white !important;
 }
 .available {
-  background-color: green !important;
+  background-color: rgb(61, 160, 61) !important;
   color: white !important;
 }
