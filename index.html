@@ -6,8 +6,6 @@
   <title>Gite Alibert</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 <header>
@@ -142,6 +140,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     flatpickr(dateInput, {
         dateFormat: "Y-m-d",
         disable: Object.keys(disponibilites).filter(date => !disponibilites[date]),
+        inline: window.innerWidth < 600, // Afficher inline si l'écran est petit
         onDayCreate: function(dObj, dStr, fp, dayElem) {
             let date = dayElem.dateObj.toISOString().split('T')[0];
             
