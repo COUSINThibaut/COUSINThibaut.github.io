@@ -94,6 +94,84 @@
             <input type="submit" value="Réserver">
         </div>
     </form>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          const dateInput = document.getElementById('date-arrivee');
+          
+          // Charger le fichier dispo.txt
+          fetch('dispo.txt')
+              .then(response => response.text())
+              .then(data => {
+                  const datesDispo = parseDisponibilites(data);
+                  configurerCalendrier(dateInput, datesDispo);
+              });
+  
+          function parseDisponibilites(data) {
+              const datesDispo = {};
+              let currentYear = '';
+              let currentMonth = '';
+  
+              const lines = data.split('\n');
+              lines.forEach(line => {
+                  line = line.trim();
+                  if (line.match(/^\d{4}$/)) {
+                      currentYear = line;
+                  } else if (line.match(/^(jan|fév|mar|avr|mai|jui|jul|aou|sep|oct|nov|dec)$/)) {
+                      currentMonth = convertMonthToNumber(line);
+                  } else if (line.match(/^\d+/)) {
+                      const [day, status] = line.split(' ');
+                      const dateKey = `${currentYear}-${currentMonth}-${day.padStart(2, '0')}`;
+                      datesDispo[dateKey] = status === '-' ? 'available' : 'unavailable';
+                  }
+              });
+              return datesDispo;
+          }
+  
+          function convertMonthToNumber(month) {
+              const months = {
+                  jan: '01',
+                  fév: '02',
+                  mar: '03',
+                  avr: '04',
+                  mai: '05',
+                  jui: '06', // pour juin
+                  jul: '07', // pour juillet
+                  aou: '08',
+                  sep: '09',
+                  oct: '10',
+                  nov: '11',
+                  dec: '12'
+              };
+              return months[month];
+          }
+  
+          function configurerCalendrier(input, datesDispo) {
+              const today = new Date();
+              input.min = today.toISOString().split('T')[0];
+  
+              input.addEventListener('input', function() {
+                  const selectedDate = input.value;
+                  if (datesDispo[selectedDate] === 'unavailable') {
+                      alert('Cette date est indisponible.');
+                      input.value = '';
+                  }
+              });
+  
+              input.addEventListener('focus', function() {
+                  const datePicker = input;
+                  const date = new Date(datePicker.value);
+                  const dateStr = date.toISOString().split('T')[0];
+  
+                  if (datesDispo[dateStr] === 'unavailable') {
+                      datePicker.style.backgroundColor = 'red';
+                  } else {
+                      datePicker.style.backgroundColor = 'green';
+                  }
+              });
+          }
+      });
+  </script>
+  
     </div>
 
 
