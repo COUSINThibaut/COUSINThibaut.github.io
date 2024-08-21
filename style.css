@@ -800,10 +800,14 @@ input:checked + .slide-container .nav label { display: block; }
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
+  transition: ease 0.2s;
+  border: solid 1px #112e3f;
 }
 
 .bouton-resa input[type="submit"]:hover {
   background-color: #e5e5e5;
+  color: #112e3f;
+  border: solid 1px #112e3f;
 }
 
 @media screen and (max-width: 1200px) {

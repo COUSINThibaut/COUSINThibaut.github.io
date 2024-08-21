@@ -382,10 +382,13 @@ textarea {
   cursor: pointer;
   font-weight: bold;
   transition: ease 0.2s;
+  border: solid 1px #112e3f;
 }
 
 .bouton-contact input[type="submit"]:hover {
-  background-color: #275068;
+  background-color: #e5e5e5;
+  color: #112e3f;
+  border: solid 1px #112e3f;
 }
 
 /* Responsive Design */
