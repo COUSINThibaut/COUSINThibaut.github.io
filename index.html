@@ -139,7 +139,7 @@
             onDayCreate: function(dObj, dStr, fp, dayElem) {
                 let date = dayElem.dateObj.toISOString().split('T')[0];
                 const today = new Date().toISOString().split('T')[0];
-                
+
                 // Calculer la date du jour précédent
                 let previousDate = new Date(date);
                 previousDate.setDate(previousDate.getDate() + 1);
@@ -151,7 +151,7 @@
                 }
                 
                 // Jours non renseignés
-                else if (!disponibilites[previousDate]) {
+                else if (!disponibilites[date] && !disponibilites[previousDate]) {
                     dayElem.classList.add('dispo-indisponible');
                 }
                 
