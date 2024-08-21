@@ -840,13 +840,3 @@ input:checked + .slide-container .nav label { display: block; }
   appearance: none;
   width: 100%;
 }
-
-@media only screen and (max-width: 600px) {
-  .flatpickr-calendar {
-      width: 100% !important;
-  }
-  .flatpickr-day, .flatpickr-day.disabled, .flatpickr-day.today {
-      font-size: 16px;
-      padding: 0.5em;
-  }
-}
