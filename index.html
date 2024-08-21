@@ -142,7 +142,7 @@
                 
                 // Calculer la date du jour précédent
                 let previousDate = new Date(date);
-                previousDate.setDate(previousDate.getDate() - 1);
+                previousDate.setDate(previousDate.getDate() + 1);
                 previousDate = previousDate.toISOString().split('T')[0];
 
                 // Jours passés
